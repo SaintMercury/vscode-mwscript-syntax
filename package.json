@@ -11,7 +11,7 @@
         "Programming Languages"
     ],
     "repository": {
-        "url": "nowhere",
+        "url": "https://github.com/SaintMercury/vscode-mwscript-syntax.git",
         "type": "git"
     },
     "contributes": {
