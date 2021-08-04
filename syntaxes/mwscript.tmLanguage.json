@@ -1,0 +1,197 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "mwscript",
+	"scopeName": "source.mwscript",
+	"fileTypes": [
+		".mws",
+		".mwscript",
+		".morrowindscript",
+		".es3"
+	],
+	"patterns": [
+		{
+			"include": "#begin_end"
+		},
+		{
+			"include": "#common"
+		},
+		{
+			"include": "#return"
+		},
+		{
+			"include": "#ifx"
+		},
+		{
+			"include": "#variable_type"
+		},
+		{
+			"include": "#assignment"
+		},
+		{
+			"include": "#assignmentx"
+		},
+		{
+			"include": "#actor"
+		},
+		{
+			"include": "#arrow"
+		},
+		{
+			"include": "#target_script"
+		},
+		{
+			"include": "#get"
+		},
+		{
+			"include": "#mod"
+		},
+		{
+			"include": "#set"
+		},
+		{
+			"include": "#script"
+		},
+		{
+			"include": "#string"
+		},
+		{
+			"include": "#mwse"
+		},
+		{
+			"include": "#alpha"
+		},
+		{
+			"include": "#ai"
+		},
+		{
+			"include": "#effects"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#operator"
+		},
+		{
+			"include": "#invalid_operator"
+		},
+		{
+			"include": "#brackets"
+		},
+		{
+			"include": "#symbol"
+		},
+		{
+			"include": "#comment"
+		}
+	],
+	"repository": {
+		"begin_end": {
+			"match": "^(?i:\\b(Begin|End)\\b)( .*)?$",
+			"captures": {
+				"1": {
+					"name": "keyword"
+				},
+				"2": {
+					"name": "entity.name.class"
+				}
+			}
+		},
+		"common": {
+			"match": "(?i:\\b(If|Else|ElseIf|EndIf|While)\\b)",
+			"name": "keyword.control"
+		},
+		"return": {
+			"match": "(?i:\\b(Return)\\b)",
+			"name": "keyword"
+		},
+		"ifx": {
+			"match": "(?i:\\b(Ifx)\\b)",
+			"name": "keyword.control"
+		},
+		"variable_type": {
+			"match": "(?i:\\t{0,}\\b(short|long|float)\\b)",
+			"name": "storage.type"
+		},
+		"assignment": {
+			"match": "(?i:\\b(set|to)\\b)",
+			"name": "keyword.operator.new"
+		},
+		"assignmentx": {
+			"match": "(?i:\\t*\\b(setx)\\b)",
+			"name": "keyword.operator"
+		},
+		"actor": {
+			"match": "(?i:[a-z][a-z0-9]*)(?=->)",
+			"name": "variable.other"
+		},
+		"arrow": {
+			"match": "->",
+			"name": "keyword.operator"
+		},
+		"target_script": {
+			"match": "(?i:[a-z|_][a-z0-9_]*)(?=\\.)",
+			"name": "variable.name"
+		},
+		"get": {
+			"match": "(?i:\\b(GetAIPackageDone|GetAcrobatics|GetAgility|GetAlarm|GetAlchemy|GetAlteration|GetAngle|GetArmorBonus|GetArmorType|GetArmorer|GetAthletics|GetAttackBonus|GetAttacked|GetAxe|GetBlightDisease|GetBlock|GetBluntWeapon|GetButtonPressed|GetCastPenalty|GetChameleon|GetCollidingActor|GetCollidingPC|GetCommonDisease|GetConjuration|GetCurrentAIPackage|GetCurrentTime|GetCurrentWeather|GetDeadCount|GetDefendBonus|GetDestruction|GetDetected|GetDisabled|GetDisposition|GetDistance|GetEffect|GetEnchant|GetEndurance|GetFatigue|GetFight|GetFlee|GetFlying|GetForceJump|GetForceRun|GetForceSneak|GetHandToHand|GetHealth|GetHealthGetRatio|GetHeavyArmor|GetHello|GetIllusion|GetIntelligence|GetInterior|GetInvisible|GetItemCount|GetJournalIndex|GetLOS|GetLevel|GetLightArmor|GetLineOfSight|GetLocked|GetLongBlade|GetLuck|GetMagicka|GetMarksman|GetMasserPhase|GetMediumArmor|GetMercantile|GetMysticism|GetPCCell|GetPCCrimeLevel|GetPCJumping|GetPCRank|GetPCRunning|GetPCSleep|GetPCSneaking|GetPCTraveling|GetPCinJail|GetParalysis|GetPersonality|GetPlayerControlsDisabled|GetPlayerFightingDisabled|GetPlayerJumpingDisabled|GetPlayerLookingDisabled|GetPlayerMagicDisabled|GetPos|GetRace|GetReputation|GetResistBlight|GetResistCorprus|GetResistDisease|GetResistFire|GetResistFrost|GetResistMagicka|GetResistNormalWeapons|GetResistParalysis|GetResistPoison|GetResistShock|GetRestoration|GetScale|GetSecondsPassed|GetSecundaPhase|GetSecurity|GetShortBlade|GetSilence|GetSneak|GetSoundPlaying|GetSpear|GetSpeechcraft|GetSpeed|GetSpell|GetSpellEffects|GetSpellReadied|GetSquareRoot|GetStandingActor|GetStandingPC|GetStrength|GetSuperJump|GetSwimSpeed|GetTarget|GetUnarmored|GetVanityModeDisabled|GetWaterBreathing|GetWaterLevel|GetWaterWalking|GetWeaponDrawn|GetWeaponType|GetWerewolfKills|GetWillpower|GetWindSpeedGetAIPackageDone|GetAcrobatics|GetAgility|GetAlarm|GetAlchemy|GetAlteration|GetAngle|GetArmorBonus|GetArmorType|GetArmorer|GetAthletics|GetAttackBonus|GetAttacked|GetAxe|GetBlightDisease|GetBlock|GetBluntWeapon|GetButtonPressed|GetCastPenalty|GetChameleon|GetCollidingActor|GetCollidingPC|GetCommonDisease|GetConjuration|GetCurrentAIPackage|GetCurrentTime|GetCurrentWeather|GetDeadCount|GetDefendBonus|GetDestruction|GetDetected|GetDisabled|GetDisposition|GetDistance|GetEffect|GetEnchant|GetEndurance|GetFatigue|GetFight|GetFlee|GetFlying|GetForceJump|GetForceRun|GetForceSneak|GetHandToHand|GetHealth|GetHealthGetRatio|GetHeavyArmor|GetHello|GetIllusion|GetIntelligence|GetInterior|GetInvisible|GetItemCount|GetJournalIndex|GetLOS|GetLevel|GetLightArmor|GetLineOfSight|GetLocked|GetLongBlade|GetLuck|GetMagicka|GetMarksman|GetMasserPhase|GetMediumArmor|GetMercantile|GetMysticism|GetPCCell|GetPCCrimeLevel|GetPCJumping|GetPCRank|GetPCRunning|GetPCSleep|GetPCSneaking|GetPCTraveling|GetPCinJail|GetParalysis|GetPersonality|GetPlayerControlsDisabled|GetPlayerFightingDisabled|GetPlayerJumpingDisabled|GetPlayerLookingDisabled|GetPlayerMagicDisabled|GetPos|GetRace|GetReputation|GetResistBlight|GetResistCorprus|GetResistDisease|GetResistFire|GetResistFrost|GetResistMagicka|GetResistNormalWeapons|GetResistParalysis|GetResistPoison|GetResistShock|GetRestoration|GetScale|GetSecondsPassed|GetSecundaPhase|GetSecurity|GetShortBlade|GetSilence|GetSneak|GetSoundPlaying|GetSpear|GetSpeechcraft|GetSpeed|GetSpell|GetSpellEffects|GetSpellReadied|GetSquareRoot|GetStandingActor|GetStandingPC|GetStrength|GetSuperJump|GetSwimSpeed|GetTarget|GetUnarmored|GetVanityModeDisabled|GetWaterBreathing|GetWaterLevel|GetWaterWalking|GetWeaponDrawn|GetWeaponType|GetWerewolfKills|GetWillpower|GetWindSpeed)\\b)",
+			"name": "entity.name.method"
+		},
+		"mod": {
+			"match": "(?i:\\b(ModAcrobatics|ModAgility|ModAlarm|ModAlchemy|ModAlteration|ModArmorBonus|ModArmorer|ModAthletics|ModAttackBonus|ModAxe|ModBlock|ModBluntWeapon|ModCastPenalty|ModChameleon|ModConjuration|ModCurrentFatigue|ModCurrentHealth|ModCurrentMagicka|ModDefendBonus|ModDestruction|ModDisposition|ModEnchant|ModEndurance|ModFactionReaction|ModFatigue|ModFight|ModFlee|ModFlying|ModHandToHand|ModHealth|ModHeavyArmor|ModHello|ModIllusion|ModIntelligence|ModInvisible|ModLightArmor|ModLongBlade|ModLuck|ModMagicka|ModMarksman|ModMediumArmor|ModMercantile|ModMysticism|ModPCCrimeLevel|ModPCFacRep|ModParalysis|ModPersonality|ModRegion|ModReputation|ModResistBlight|ModResistCorprus|ModResistDisease|ModResistFire|ModResistFrost|ModResistMagicka|ModResistNormalWeapons|ModResistParalysis|ModResistPoison|ModResistShock|ModRestoration|ModScale|ModSecurity|ModShortBlade|ModSilence|ModSneak|ModSpear|ModSpeechcraft|ModSpeed|ModStrength|ModSuperJump|ModSwimSpeed|ModUnarmored|ModWaterBreathing|ModWaterLevel|ModWaterWalking|ModWillpower)\\b)",
+			"name": "entity.name.method"
+		},
+		"set": {
+			"match": "(?i:\\b(SetAcrobatics|SetAgility|SetAlarm|SetAlchemy|SetAlteration|SetAngle|SetArmorBonus|SetArmorer|SetAtStart|SetAthletics|SetAttackBonus|SetAxe|SetBlock|SetBluntWeapon|SetCastPenalty|SetChameleon|SetConjuration|SetDefendBonus|SetDelete|SetDestruction|SetDisposition|SetEnchant|SetEndurance|SetFactionReaction|SetFatigue|SetFight|SetFlee|SetFlying|SetHandToHand|SetHealth|SetHeavyArmor|SetHello|SetIllusion|SetIntelligence|SetInvisible|SetJournalIndex|SetLevel|SetLightArmor|SetLongBlade|SetLuck|SetMagicka|SetMarksman|SetMediumArmor|SetMercantile|SetMysticism|SetPCCCrimeLevel|SetPCFacRep|SetParalysis|SetPersonality|SetPos|SetReputation|SetResistBlight|SetResistCorprus|SetResistDisease|SetResistFire|SetResistFrost|SetResistMagicka|SetResistNormalWeapons|SetResistParalysis|SetResistPoison|SetResistShock|SetRestoration|SetScale|SetSecurity|SetShortBlade|SetSilence|SetSneak|SetSpear|SetSpeechcraft|SetSpeed|SetStrength|SetSuperJump|SetSwimSpeed|SetUnarmored|SetWaterBreathing|SetWaterWalking|SetWaterlevel|SetWerewolfAcrobatics|SetWillpower)\\b)",
+			"name": "entity.name.method"
+		},
+		"script": {
+			"match": "(?i:\\b(StartScript|ScriptRunning|StopScript)\\b)",
+			"name": "support.function"
+		},
+		"string": {
+			"match": "(\".+?\")",
+			"name": "string.quoted.double"
+		},
+		"mwse": {
+			"match": "(?i:\\b(XAddItem|XAITravel|XArcCos|XArcSin|XArcTan|XContentList|XCos|XDegrad|XDistance|XDrop|XEquip|XFileReadFloat|XFileReadLong|XFileReadShort|XFileReadString|XFileReadText|XFileRewind|XFileSeek|XFileWriteFloat|XFileWriteLong|XFileWriteShort|XFileWriteString|XFileWriteText|XFirstItem|XFirstNPC|XFirstStatic|XGetBaseAgi|XGetBaseEnd|XGetBaseGold|XGetBaseID|XGetBaseInt|XGetBaseLuc|XGetBasePer|XGetBaseSpe|XGetBaseStr|XGetBaseWil|XGetCharge|XGetCombat|XGetCondition|XGetEncumb|XGetGold|XGetMaxCharge|XGetMaxCondition|XGetName|XGetOwner|XGetPCTarget|XGetQuality|XGetRef|XGetService|XGetValue|XGetWeight|XHasItemEquipped|XHypot|XInventory|XIsFemale|XIsProvider|XIsTrader|XIsTrainer|XKeyPressed|XLogMessage|XMemLook|XMessageFix|XModService|XMyCellID|XNextRef|XNextStack|XPCCellID|XPlace|XPosition|XPositionCell|XRaddeg|XRefID|XRefType|XRemoveItem|XSetBaseGold|XSetGold|xSetName|XSetRef|XSetService|XSin|XSqrt|XStartCombat|XStringBuild|XStringCompare|XStringLength|XStringParse|XTan|XTextInput|XTextInputAlt|MGEWipeAll|MGEOutputDebugString|MGEOutputVersionString|MGEGetVersion|MGEGetWidth|MGEGetHeight|MGEGetFPS|MGEGetEyeVec|MGEEnableDistantLand|MGEDisableDistantLand|MGEWipeHUDElements|MGEWithHUD|MGECancelWithHUD|MGELoadHUD|MGEPositionHUD|MGEScaleHUD|MGEFullscreenHUD|MGEEnableHUD|MGEDisableHUD|MGEChangeHUDTexture|MGEChangeHUDEffect|MGEFreeHUD|MGENIDLoadHUD|MGENIDPositionHUD|MGENIDScaleHUD|MGENIDFullscreenHUD|MGENIDEnableHUD|MGENIDDisableHUD|MGENIDChangeHUDTexture|MGENIDChangeHUDEffect|MGENIDFreeHUD|MGEManualLighting|MGEEndManualLighting|MGESetSunColour|MGEDefaultSunColour|MGESetSunDirection|MGEDefaultSunDirection|MGESetSunTexture|MGEDefaultSunTexture|MGEGetSunColour|MGEGetSunDir|MGESetAmbientColour|MGEDefaultAmbientColour|MGEGetAmbientColour|MGESetClsColour|MGEDefaultClsColour|MGEGetClsColour|MGESetSkyColour|MGEDefaultSkyColour|MGESetHUDColour|MGEDefaultHUDColour|MGETapKey|MGEPushKey|MGEReleaseKey|MGEHammerKey|MGEUnhammerKey|MGEAHammerKey|MGEAUnhammerKey|MGEDisallowKey|MGEAllowKey|MGEMoveMouseRight|MGEMoveMouseLeft|MGEMoveMouseUp|MGEMoveMouseDown|MGESetMouseSpeedRight|MGESetMouseSpeedLeft|MGESetMouseSpeedUp|MGESetMouseSpeedDown|MGEDisableMouse|MGEEnableMouse|MGEBufferedKeyDown|MGEBufferedKeyUp|MGEEnableFog|MGEDisableFog|MGEToggleFog|MGEIncreaseFog|MGEDecreaseFog|MGEIncreaseFogBy|MGEDecreaseFogBy|MGESetFog|MGEFogZoom|MGEStopFogZoom|MGEGetFog|MGESetFogColour|MGEDefaultFogColour|MGEGetFogColour|MGEEnableCameraShake|MGEDisableCameraShake|MGESetCameraShakeMagnitude|MGECameraShakeZoom|MGEStopCameraShakeZoom|MGETakeScreenshot|MGETakeBMPScreenShot|MGETakeJPEGScreenShot|MGETakeDDSScreenshot|MGETakePNGScreenshot|MGEEnableFPSCounter|MGEDisableFPSCounter|MGEToggleFPSCounter|MGERotateScreen|MGESetScreenRot0|MGESetScreenRot90|MGESetScreenRot180|MGESetScreenRot270|MGERotateScreenBy|MGESetScreenRotation|MGEScreenSpin|MGEStopSpinSpin|MGEGetScreenRotation|MGEEnableZoom|MGEDisableZoom|MGEToggleZoom|MGEZoomIn|MGEZoomOut|MGEZoomInBy|MGEZoomOutBy|MGESetZoom|MGEZoom|MGEStopZoom|MGEGetZoom|MGELoadTexture|MGEFreeTexture|MGEWipeTextures|MGEBeginTexDraw|MGEEndTexDraw|MGESetTexDrawOrigin|MGESetTexDrawScale|MGESetTexDrawColour|MGEDrawTextToTexture|MGEDrawTextureToTexture|MGEAutoFreeHook|MGEDontFreeHook|MGEResumeVideo|MGEPauseVideo|MGEStopVideo|MGERewindVideo|MGESeekVideo|MGEEnableFullscreenShaders|MGEDisableFullscreenShaders|MGEToggleFullscreenShaders|MGELoadEffect|MGESetEffectTechnique|MGEUseEffectAsFullscreenShader|MGEDisableEffect|MGEFreeEffect|MGESetEffectVarLong|MGESetEffectVarFloat|MGESetEffectVarVector|MGESetEffectVarTexture|MGEWipeLoadedEffects|MGEWithMesh|MGECancelWithMesh|MGEWipeLoadedMeshes|MGELoadMesh|MGESetMeshPosition|MGESetMeshRotation|MGESetMeshScale|MGEMoveMesh|MGERotateMesh|MGEScaleMesh|MGESetMeshVelocity|MGESetMeshAngularVelocity|MGESetMeshGrowth|MGEZeroMeshVelocity|MGEZeroMeshAngularVelocity|MGEZeroMeshGrowth|MGEEnableMesh|MGEDisableMesh|MGESetMeshTexture|MGESetMeshEffect|MGEManualMesh|MGEFreeMesh|MGEUpdateMeshLighting|MGENIDLoadMesh|MGENIDSetMeshPosition|MGENIDSetMeshRotation|MGENIDSetMeshScale|MGENIDMoveMesh|MGENIDRotateMesh|MGENIDScaleMesh|MGENIDSetMeshVelocity|MGENIDSetMeshAngularVelocity|MGENIDSetMeshGrowth|MGENIDZeroMeshVelocity|MGENIDZeroMeshAngularVelocity|MGENIDZeroMeshGrowth|MGENIDEnableMesh|MGENIDDisableMesh|MGENIDSetMeshTexture|MGENIDSetMeshEffect|MGENIDManualMesh|MGENIDFreeMesh|MGENIDUpdateMeshLighting)\\b)",
+			"name": "support.function"
+		},
+		"alpha": {
+			"match": "(?i:\\b(xGetBaseHealth|xGetBaseMagicka|xGetBaseFatigue|xIsScripted|xLastActorHit|xSetEntityName|xSetOwner|MGEUIShow|MGEUIHide|xSetSkyColour|xSetFogColour|xSetAmbientColour|xSetSunColour|xSetSunriseSunset|xSetScattering|xSetWeatherGlare|xSetWeatherCloudSpeed|xSetWeatherWindSpeed|MGEEnableShader|MGEDisableShader|MGESetShaderFloat|MGESetShaderLong|MGESetShaderVector|xRayTest|xRayHitPosition|xRayHitNormal|xRayHitRef|xModelBounds|xGetGS|xSetGSfloat|xSetGSlong|xSetWeatherSky|xSetWeatherFog|xSetWeatherAmbient|xSetWeatherSun|xSetSunriseSunset|xSetWeatherScattering|MGEEnableShader|MGEDisableShader|MGEShaderSetFloat|MGEShaderSetLong|MGEShaderSetVector|xDropItem|xEquipItem|xSetName|xGetSpellEffects|xSetOwner|xCast|xAddSpell|xRemoveSpell|xSetValue|xSetWeight|xSetQuality|xSetCondition|xSetMaxCondition|xSetCharge|xSetMaxCharge|xStringMatch|xGetBaseAcrobatics|xGetBaseAlchemy|xGetBaseAlteration|xGetBaseArmorer|xGetBaseAthletics|xGetBaseAxe|xGetBaseBlock|xGetBaseBluntWeapon|xGetBaseConjuration|xGetBaseDestruction|xGetBaseEnchant|xGetBaseHandToHand|xGetBaseHeavyArmor|xGetBaseIllusion|xGetBaseLightArmor|xGetBaseLongBlade|xGetBaseMarksman|xGetBaseMediumArmor|xGetBaseMercantile|xGetBaseMysticism|xGetBaseRestoration|xGetBaseSecurity|xGetBaseShortBlade|xGetBaseSneak|xGetBaseSpear|xGetBaseSpeechcraft|xGetBaseUnarmored|xGetProgressLevel|xGetLockLevel|xSetProgressLevel|xGetTrap|xSetTrap|xExplodeSpell|xFloatsToLong|xLongToFloats|xGetSpellInfo|xGetSpellEffectInfo|xSpellList|xGetSpell|xGetEnchant|xGetEnchantInfo|xGetEnchantEffectInfo|xGetClass|xGetProgressSkill|xSetProgressSkill|xModProgressSkill|xGetBaseSkill|xModProgressLevel|xCreateArray|xGetArrayValue|xSetArrayValue|xGetOwnerInfo|xPow|xShift|xBitAnd|xBitOr|xBitXor|xBitNot|xAnd|xOr|xXor|xNot|xGetGlobal|xSetGlobal|xGetMagic|xSetSpellInfo|xSetEffectInfo|xGetEffectInfo|xSetEnchantInfo|xDeleteEffect|xAddEffect|xGetBaseEffectInfo|xSetBaseEffectInfo|xCreateSpell|xDeleteSpell|xGetSkillInfo|xSetSkillInfo|xGetGSString|xSetGSString|xSetLevel|xGetSkill|xGetBaseAttribute|xGetAttribute|xModAttribute|xGetMaxHealth|xRandomLong|xRandomFloat)\\b)",
+			"name": "support.function"
+		},
+		"ai": {
+			"match": "(?i:\\b(AIActivate|AIEscort|AIEscortCell|AIFollow|AIFollowCell|AITravel|AIWander|Activate|AddItem|AddSoulGem|AddSpell|AddToLevCreature|AddToLevItem|AddTopic|AllowWereWolf|AllowWereWolfForceGreeting|BecomeWerewolf|Cast|CellChanged|CenterOnCell|CenterOnExterior|ChangeWeather|Choice|ClearForceJump|ClearForceMoveJump|ClearForceRun|ClearForceSneak|ClearInfoActor|Companion|Companion|CrimeGoldDiscount|CrimeGoldTurnIn|Day|DaysPassed|Disable|DisableLevitation|DisablePlayerControls|DisablePlayerFighting|DisablePlayerJumping|DisablePlayerLooking|DisablePlayerMagic|DisablePlayerViewSwitch|DisableTeleporting|DisableVanityMode|DontSaveObject|Drop|Enable|EnableBirthMenu|EnableClassMenu|EnableInventoryMenu|EnableLevelUpMenu|EnableLevitation|EnableMagicMenu|EnableMapMenu|EnableNameMenu|EnablePlayerControls|EnablePlayerFighting|EnablePlayerJumping|EnablePlayerLooking|EnablePlayerMagic|EnablePlayerViewSwitch|EnableRaceMenu|EnableRest|EnableStatsMenu|EnableTeleporting|EnableVanityMode|Equip|ExplodeSpell|Face|FadeIn|FadeOut|FadeTo|Fall|FillMap|FixMe|Flee|ForceGreeting|ForceGreeting|ForceJump|ForceRun|ForceSneak|GameHour|GotoJail|HasItemEquipped|HasSoulgem|HitAttemptOnMe|HitOnMe|HurtCollidingActor|HurtStandingActor|IsWerewolf|Journal|Lock|LoopGroup|LowerRank|MenuMode|MenuTest|MessageBox|MinimumProfit|MinimumProfit|Month|Move|MoveWorld|NPCVoiceDistance|NoFlee|NoFlee|NoHello|NoHello|NoIdle|NoIdle|NoLore|NoLore|OnActivate|OnDeath|OnKnockout|OnMurder|OnPCAdd|OnPCAdd|OnPCDrop|OnPCDrop|OnPCEquip|OnPCEquip|OnPCHitMe|OnPCHitMe|OnPCRepair|OnPCRepair|OnPCSoulGemUse|OnPCSoulGemUse|PCClearExpelled|PCExpell|PCExpelled|PCForce1stPerson|PCForce3rdPerson|PCGet3rdPerson|PCJoinFaction|PCKnownWerewolf|PCLowerRank|PCRace|PCRaiseRank|PCSkipEquip|PCSkipEquip|PCVampire|PCWerewolf|PayFine|PayFineThief|PlaceAtMe|PlaceAtPC|PlaceItem|PlaceItemCell|PlayBink|PlayGroup|PlayLoopSound3D|PlayLoopSound3DVP|PlaySound|PlaySound3D|PlaySound3DVP|PlaySoundVP|Position|PositionCell|RaiseRank|Random|RemoveEffects|RemoveFromLevCreature|RemoveFromLevItem|RemoveItem|RemoveSoulgem|RemoveSpell|RemoveSpellEffects|RepairedOnMe|ResetActors|Resurrect|Rotate|RotateWorld|SameFaction|Say|SayDone|ShowMap|ShowRestMenu|SkipAnim|StartCombat|StayOutside|StayOutsideAIActivate|StopCombat|StopSound|StreamMusic|TimeScale|ToggleAI|ToggleCollision|ToggleFogOfWar|ToggleGodMode|ToggleMenus|ToggleSky|ToggleVanityMode|ToggleWorld|TurnMoonRed|TurnMoonWhite|UndoWerewolf|Unlock|VampClan|WakeUpPC|Year)\\b)",
+			"name": "support.function"
+		},
+		"effects": {
+			"match": "(?i:\\b(sEffectWaterBreathing|sEffectSwiftSwim|sEffectWaterWalking|sEffectShield|sEffectFireShield|sEffectLightningShield|sEffectFrostShield|sEffectBurden|sEffectFeather|sEffectJump|sEffectLevitate|sEffectSlowFall|sEffectLock|sEffectOpen|sEffectFireDamage|sEffectShockDamage|sEffectFrostDamage|sEffectDrainAttribute|sEffectDrainHealth|sEffectDrainSpellpoints|sEffectDrainFatigue|sEffectDrainSkill|sEffectDamageAttribute|sEffectDamageHealth|sEffectDamageMagicka|sEffectDamageFatigue|sEffectDamageSkill|sEffectPoison|sEffectWeaknessToFire|sEffectWeaknessToFrost|sEffectWeaknessToShock|sEffectWeaknessToMagicka|sEffectWeaknessToCommonDisease|sEffectWeaknessToBlightDisease|sEffectWeaknessToCorprusDisease|sEffectWeaknessToPoison|sEffectWeaknessToNormalWeapons|sEffectDisintegrateWeapon|sEffectDisintegrateArmor|sEffectInvisibility|sEffectChameleon|sEffectLight|sEffectSanctuary|sEffectNightEye|sEffectCharm|sEffectParalyze|sEffectSilence|sEffectBlind|sEffectSound|sEffectCalmHumanoid|sEffectCalmCreature|sEffectFrenzyHumanoid|sEffectFrenzyCreature|sEffectDemoralizeHumanoid|sEffectDemoralizeCreature|sEffectRallyHumanoid|sEffectRallyCreature|sEffectDispel|sEffectSoultrap|sEffectTelekinesis|sEffectMark|sEffectRecall|sEffectDivineIntervention|sEffectAlmsiviIntervention|sEffectDetectAnimal|sEffectDetectEnchantment|sEffectDetectKey|sEffectSpellAbsorption|sEffectReflect|sEffectCureCommonDisease|sEffectCureBlightDisease|sEffectCureCorprusDisease|sEffectCurePoison|sEffectCureParalyzation|sEffectRestoreAttribute|sEffectRestoreHealth|sEffectRestoreSpellPoints|sEffectRestoreFatigue|sEffectRestoreSkill|sEffectFortifyAttribute|sEffectFortifyHealth|sEffectFortifySpellpoints|sEffectFortifyFatigue|sEffectFortifySkill|sEffectFortifyMagickaMultiplier|sEffectAbsorbAttribute|sEffectAbsorbHealth|sEffectAbsorbSpellPoints|sEffectAbsorbFatigue|sEffectAbsorbSkill|sEffectResistFire|sEffectResistFrost|sEffectResistShock|sEffectResistMagicka|sEffectResistCommonDisease|sEffectResistBlightDisease|sEffectResistCorprusDisease|sEffectResistPoison|sEffectResistNormalWeapons|sEffectResistParalysis|sEffectRemoveCurse|sEffectTurnUndead|sEffectSummonScamp|sEffectSummonClannfear|sEffectSummonDaedroth|sEffectSummonDremora|sEffectSummonAncestralGhost|sEffectSummonSkeletalMinion|sEffectSummonLeastBonewalker|sEffectSummonGreaterBonewalker|sEffectSummonBonelord|sEffectSummonWingedTwilight|sEffectSummonHunger|sEffectSummonGoldensaint|sEffectSummonFlameAtronach|sEffectSummonFrostAtronach|sEffectSummonStormAtronach|sEffectFortifyAttackBonus|sEffectCommandCreatures|sEffectCommandHumanoids|sEffectBoundDagger|sEffectBoundLongsword|sEffectBoundMace|sEffectBoundBattleAxe|sEffectBoundSpear|sEffectBoundLongbow|sEffectExtraSpell|sEffectBoundCuirass|sEffectBoundHelm|sEffectBoundBoots|sEffectBoundShield|sEffectBoundGloves|sEffectCorpus|sEffectVampirism|sEffectSummonCenturionSphere|sEffectSunDamage|sEffectStuntedMagicka)\\b)",
+			"name": "constant.other"
+		},
+		"number": {
+			"match": "(-?\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f)?\\b)",
+			"name": "constant.numeric"
+		},
+		"operator": {
+			"match": " \\- | / | \\+ | \\* | == | <= | >= | < | > | != ",
+			"name": "keyword.operator"
+		},
+		"invalid_operator": {
+			"match": "!|//|\\*\\*|\\$|%|&|\\-\\-|\\+\\+|~|===|=|!=|!==|<<=|>>=|>>>=|<>|&&|\\|\\||\\?\\:|\\*=|/=|%=|\\+=|\\-=|&=|\\^=",
+			"name": "invalid"
+		},
+		"brackets": {
+			"match": " \\( | \\)",
+			"name": "brackets.unknown"
+		},
+		"symbol": {
+			"match": ";#.*$",
+			"name": "comment.block"
+		},
+		"comment": {
+			"match": ";.*$",
+			"name": "comment.line"
+		}
+	}
+}

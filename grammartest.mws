@@ -1,0 +1,7 @@
+; SYNTAX TEST "source.mwscript" "please just read"
+
+; This is a comment
+; <----- comment
+Begin Script001
+; <-----  source.mwscript
+End

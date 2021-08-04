@@ -1,0 +1,23 @@
+; comment here
+
+Begin example001
+    ; comment
+    short a
+    short butt ; cock
+    long bottom ; swank
+    float er001 ;ergle
+    set weiner to 001 ;123123
+    set butt to ( 1.0000 + 2 ) ; parens always and forever
+    set turd to 1.0.0.0 ; should this highlight?? probs not, but like, fug this
+    ; comment here is fine too short anus
+    if ( butt == 1 ) ;asdawdwadawd
+        MessageBox, 
+    elseif ( 1 != 2 )
+        ; comment here is fine
+    endif
+    
+End
+
+; comment
+
+; horseshit asdasdasd

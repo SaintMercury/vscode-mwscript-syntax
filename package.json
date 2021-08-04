@@ -1,0 +1,42 @@
+{
+    "name": "vscode-mwscript-syntax",
+    "publisher": "saintmercury",
+    "displayName": "vscode-mwscript-syntax",
+    "description": "Morrowind Scripting Language syntax highlighting",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.58.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "repository": {
+        "url": "nowhere",
+        "type": "git"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "mwscript",
+                "aliases": [
+                    "mws",
+                    "morrowindwscript"
+                ],
+                "extensions": [
+                    ".mwscript",
+                    ".morrowindscript",
+                    ".mws",
+                    ".es3"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "mwscript",
+                "scopeName": "source.mwscript",
+                "path": "./syntaxes/mwscript.tmLanguage.json"
+            }
+        ]
+    }
+}
