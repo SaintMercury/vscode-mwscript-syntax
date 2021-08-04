@@ -2,7 +2,7 @@
 
 ## Features
 
-Morrowind Script syntax highlighting adapted from (mg79's sublime highlighting)[https://www.nexusmods.com/morrowind/mods/45311]
+Morrowind Script syntax highlighting adapted from [mg79's sublime highlighting](https://www.nexusmods.com/morrowind/mods/45311)
 
 ## Known Issues
 
